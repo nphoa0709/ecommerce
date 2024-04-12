@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
 
+import Home from './components/Home';
+import NotFound from './components/NotFound';
+import TodoFeature from './features/Todos';
+import { Routes, Route, NavLink } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      Header
+      <p><NavLink to="/todos">Todos</NavLink></p>
+      <Routes>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='/todos/*' element={<TodoFeature />}></Route>
+
+      </Routes>
+      Footer
     </div>
   );
 }
